@@ -4,6 +4,7 @@
 #imports
 import random
 import os
+import time
 
 
 #modules
@@ -146,7 +147,7 @@ for _ in range(1, playerNum + 1):
 
 print("Players, get READY!!!...\n\n")
 
-while(not thereIsWinner):
+while(not thereIsWinner): #loop game , when the game starts
     desk.countCards()
     desk.listCards = []
     desk.lastCard = None
@@ -163,6 +164,10 @@ while(not thereIsWinner):
         desk.lastCard = None
         
         for player in desk.playersList:
+            
+            print(f'\nDealing cards to {player.name}...\n')
+            delay = 1
+            time.sleep(delay)
             player.playerCards = shareCards(listCards,5)
         
         while(len(desk.playersList[-1].playerCards) != 0 and  not thereIsWinner):
@@ -172,7 +177,7 @@ while(not thereIsWinner):
                     
                     cardChoosen = player.chooseCard(desk)
                     desk.event(cardChoosen)
-                    #os.system("clear")
+                    os.system("clear")
                     print("----------------------------------------------------")
                     desk.showDeskCards()
                     thereIsWinner  = desk.checkWinner()

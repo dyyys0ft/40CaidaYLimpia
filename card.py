@@ -7,10 +7,10 @@ class Card:
     
     #own methods
     def __str__(self):
-        return f'[{self.number} {self.symbol}]'
+        return f'[{self.number} {self.symbol.value}]'
 
     def __repr__(self):
-        return f'[{self.number} {self.symbol}]'
+        return f'[{self.number} {self.symbol.value}]'
       
     @staticmethod  
     def getValue(x):
